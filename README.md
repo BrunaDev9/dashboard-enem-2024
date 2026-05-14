@@ -1,47 +1,57 @@
 🚀 Dashboard ENEM 2024: Panorama Educacional Brasileiro
-Análise de mais de 4,3 milhões de registros utilizando uma arquitetura escalável e otimizada. Este projeto documenta a transição de dados brutos para uma estrutura de Business Intelligence profissional.
+Status do Projeto: Em desenvolvimento (Fase de Visualização) 📈
 
-📈 Resumo da Jornada do Projeto
-Este projeto não foi apenas sobre criar gráficos, mas sobre enfrentar os desafios reais de um Analista de Dados. Abaixo, pontuo as etapas e problemas superados ao longo desse projeto:
+Este projeto documenta o ciclo completo de um dado: da extração bruta à inteligência de negócio.
 
-1. Infraestrutura e Armazenamento (Docker + PostgreSQL)
-Antes de analisar, foi necessário garantir onde os dados morariam.
+🎯 Objetivo
+Transformar os microdados do ENEM 2024 (mais de 4,3 milhões de registros) em insights visuais acionáveis, superando desafios críticos de infraestrutura e performance que simulam um ambiente real de engenharia de dados.
 
-Desafio: Configurar um ambiente isolado e seguro para o banco de dados.
+🛠️ Stack Tecnológica
+Linguagem: Python 3.x (Pandas, PyArrow)
 
-Solução: Implementação de um container Docker com PostgreSQL.
+Banco de Dados: PostgreSQL rodando via Docker
 
-Destaque: Uso de docker-compose para subir o serviço de banco de dados, garantindo que o projeto seja replicável em qualquer máquina.
+BI: Power BI (DAX Avançado)
 
-2. ETL e Limpeza de Dados (Python & SQL)
-Os Microdados do ENEM são famosos por serem "sujos" e complexos.
+Versionamento: Git (Otimizado para grandes volumes)
 
-Limpeza com Python: Tratamento de valores nulos e padronização de colunas utilizando Pandas.
 
-Carga de Dados: Criação de scripts import_data.py para automatizar a inserção de milhões de linhas no PostgreSQL sem travar o sistema.
+🏗️ Arquitetura e Desafios Superados
+1. Ambiente Isolado com Docker
+Para garantir que o projeto seja replicável e não dependa de instalações locais complexas:
 
-Modelagem: Escrita de scripts SQL (script_modelagem.sql) para organizar as tabelas de forma eficiente para o Power BI.
+O que fiz: Configurei um ambiente de banco de dados PostgreSQL totalmente containerizado.
 
-3. Otimização de Performance (A "Ponta do Iceberg")
-O maior desafio técnico surgiu ao tentar versionar o projeto. Os arquivos CSV originais somavam mais de 1.6 GB.
+Ponto Forte: Uso de docker-compose para orquestração, permitindo subir todo o backend do projeto com um único comando.
 
-Problema: Limites de upload do GitHub e lentidão no processamento.
+2. Engenharia de Dados e Otimização (O "Iceberg")
+Este foi o ponto de maior aprendizado técnico. Lidar com arquivos de 1.6 GB exigiu estratégias de compressão:
 
-Solução de Engenharia: Migração da arquitetura de armazenamento de CSV para Parquet com compressão Snappy.
+Desafio: O limite de 100MB do GitHub e a lentidão do CSV.
 
-Resultado: Redução de 84% no tamanho dos arquivos (ex: de 444MB para 71MB), permitindo o versionamento completo do projeto e uma leitura muito mais veloz no dashboard.
+Solução: Implementação de conversão para Parquet com compressão Snappy.
 
-4. Storytelling e UX no Power BI
-Com os dados limpos e otimizados, o foco mudou para a entrega de valor.
+Resultado Extraordinário: * Redução do volume de dados em 84%.
 
-Cálculos DAX: Criação de métricas personalizadas, como a Média por Área (corrigindo lógicas iniciais de Min/Max) para refletir a realidade pedagógica.
+O arquivo de 444MB passou para apenas 71MB, mantendo 100% da integridade.
 
-Interface: Design focado no usuário, removendo elementos desnecessários (como logos não autorizados) para manter a sobriedade e o foco na informação.
-🛠️ Tecnologias Utilizadas
-Linguagem: Python (Pandas, PyArrow)
+3. Modelagem SQL e Business Intelligence
+A inteligência por trás dos gráficos:
 
-Banco de Dados: PostgreSQL & Docker
+ETL: Scripts Python personalizados para carga de dados em massa.
 
-Visualização: Power BI (DAX & Power Query)
+DAX: Desenvolvimento de medidas complexas, como a Média por Área, garantindo que o dashboard reflita métricas pedagógicas reais e não apenas cálculos estatísticos básicos.
 
-Versionamento: Git & GitHub
+🧠 Lições Aprendidas (Highlights)
+✅ Gestão de Crise em Git: Limpeza de histórico e uso de .gitignore para dados sensíveis/pesados.
+
+✅ Performance: Por que o formato colunar (Parquet) é o padrão da indústria para Big Data.
+
+✅ UX para Dados: A importância de um layout limpo e focado no usuário final.
+
+📸 Preview do Dashboard
+
+
+
+
+
