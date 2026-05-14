@@ -1,0 +1,8 @@
+*.csv
+# Bloqueia o arquivo específico que passou de 100MB
+RESULTADOS_2024.parquet
+
+# Ignora pastas de ambiente e logs
+.env
+venv/
+__pycache__/
